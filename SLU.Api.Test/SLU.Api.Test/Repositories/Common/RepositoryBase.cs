@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SLU.Api.Test.Data.Entities;
+using SLU.Api.Test.Repositories.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace SLU.Api.Test.Common.Repositories
 {
-    public abstract class RepositoryBase<TEntityType> where TEntityType : IDataEntity, new()
+    public abstract class RepositoryBase<TEntityType> : IRepository<TEntityType> where TEntityType : IDataEntity, new()
     {
         private readonly string _jsonFileName;
 
@@ -28,14 +29,30 @@ namespace SLU.Api.Test.Common.Repositories
             File.WriteAllText(JsonFilePath(), serializedEntities);
         }
 
-        public virtual void Delete(int id)
+        public virtual void Create(TEntityType entity)
+        {
+            var existingEntities = ReadJsonFile().ToList();
+
+            entity.Id = existingEntities.Any()
+                ? existingEntities.Max(x => x.Id) + 1
+                : 1;
+
+            existingEntities.Add(entity);
+            WriteJsonFile(existingEntities);
+        }
+
+        public abstract void Update(TEntityType entityToUpdate, TEntityType entity);
+
+        public virtual bool Delete(int id)
         {
             var allEntites = ReadJsonFile();
             var filteredEntites = allEntites.Where(x => x.Id != id).ToList();
             WriteJsonFile(filteredEntites);
+
+            return allEntites.Count() != filteredEntites.Count();
         }
 
-        public virtual IEnumerable<TEntityType> Get()
+        public virtual IEnumerable<TEntityType> GetAll()
         {
             return ReadJsonFile();
         }
@@ -57,5 +74,7 @@ namespace SLU.Api.Test.Common.Repositories
 
             return filePath;
         }
+
+
     }
 }

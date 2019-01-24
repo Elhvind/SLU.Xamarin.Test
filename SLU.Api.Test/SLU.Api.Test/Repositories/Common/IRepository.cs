@@ -5,10 +5,10 @@ namespace SLU.Api.Test.Repositories.Common
 {
     public interface IRepository<TEntityType> where TEntityType : IDataEntity, new()
     {
-        IEnumerable<TEntityType> Get();
+        IEnumerable<TEntityType> GetAll();
         TEntityType Get(int id);
         void Create(TEntityType entity);
-        void Update(TEntityType entity);
-        void Delete(int id);
+        void Update(TEntityType entityToUpdate, TEntityType entity);
+        bool Delete(int id);
     }
 }

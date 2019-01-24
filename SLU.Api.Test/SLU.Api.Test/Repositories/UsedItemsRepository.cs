@@ -11,14 +11,9 @@ namespace SLU.Api.Test.Repositories
         {
         }
 
-        public void Create(UsedItemEntity entity)
+        public override void Update(UsedItemEntity entityToUpdate, UsedItemEntity entity)
         {
-            throw new System.NotImplementedException();
-        }
 
-        public void Update(UsedItemEntity entity)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

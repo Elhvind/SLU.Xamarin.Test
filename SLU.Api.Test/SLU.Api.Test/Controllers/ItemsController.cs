@@ -21,7 +21,7 @@ namespace SLU.Api.Test.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<ItemEntity>> Get()
         {
-            return Ok(_itemsRepository.Get());
+            return Ok(_itemsRepository.GetAll());
         }
 
         [HttpGet("{id}")]
@@ -36,19 +36,44 @@ namespace SLU.Api.Test.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] ItemEntity value)
+        public ActionResult Post([FromBody] ItemEntity item)
         {
+            if (ModelState.IsValid)
+            {
+                _itemsRepository.Create(item);
+                return Created(Url.Action("Get", "Items", new { id = item.Id }), item.Id);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ItemEntity value)
+        public ActionResult Put(int id, [FromBody] ItemEntity item)
         {
+            var itemToUpdate = _itemsRepository.Get(id);
+
+            if (ModelState.IsValid && itemToUpdate != null)
+            {
+                _itemsRepository.Update(itemToUpdate, item);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _itemsRepository.Delete(id);
+            var deleted = _itemsRepository.Delete(id);
+
+            if (deleted)
+                return NoContent();
+            else
+                return BadRequest();
         }
     }
 }

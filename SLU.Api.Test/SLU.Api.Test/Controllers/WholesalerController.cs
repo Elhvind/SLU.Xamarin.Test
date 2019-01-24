@@ -21,7 +21,7 @@ namespace SLU.Api.Test.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<WholesalerEntity>> Get()
         {
-            return Ok(_wholesalerRepository.Get());
+            return Ok(_wholesalerRepository.GetAll());
         }
 
         [HttpGet("{id}")]
@@ -36,21 +36,44 @@ namespace SLU.Api.Test.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] WholesalerEntity wholesaler)
+        public ActionResult Post([FromBody] WholesalerEntity wholesaler)
         {
-            _wholesalerRepository.Create(wholesaler);
+            if (ModelState.IsValid)
+            {
+                _wholesalerRepository.Create(wholesaler);
+                return Created(Url.Action("Get", "Wholesaler", new { id = wholesaler.Id }), wholesaler.Id);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] WholesalerEntity wholesaler)
+        public ActionResult Put(int id, [FromBody] WholesalerEntity wholesaler)
         {
-            _wholesalerRepository.Update(wholesaler);
+            var wholesalerToUpdate = _wholesalerRepository.Get(id);
+
+            if (ModelState.IsValid && wholesalerToUpdate != null)
+            {
+                _wholesalerRepository.Update(wholesalerToUpdate, wholesaler);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _wholesalerRepository.Delete(id);
+            var deleted = _wholesalerRepository.Delete(id);
+
+            if (deleted)
+                return NoContent();
+            else
+                return BadRequest();
         }
     }
 }

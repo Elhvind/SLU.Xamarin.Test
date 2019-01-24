@@ -11,14 +11,9 @@ namespace SLU.Api.Test.Repositories
         {
         }
 
-        public void Create(WholesalerEntity entity)
+        public override void Update(WholesalerEntity entityToUpdate, WholesalerEntity entity)
         {
-            throw new System.NotImplementedException();
-        }
 
-        public void Update(WholesalerEntity entity)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

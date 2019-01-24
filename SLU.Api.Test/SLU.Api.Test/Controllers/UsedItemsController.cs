@@ -21,7 +21,7 @@ namespace SLU.Api.Test.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UsedItemEntity>> Get()
         {
-            return Ok(_usedItemsRepository.Get());
+            return Ok(_usedItemsRepository.GetAll());
         }
 
         [HttpGet("{id}")]
@@ -36,19 +36,44 @@ namespace SLU.Api.Test.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] UsedItemEntity value)
+        public ActionResult Post([FromBody] UsedItemEntity usedItem)
         {
+            if (ModelState.IsValid)
+            {
+                _usedItemsRepository.Create(usedItem);
+                return Created(Url.Action("Get", "UsedItems", new { id = usedItem.Id }), usedItem.Id);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] UsedItemEntity value)
+        public ActionResult Put(int id, [FromBody] UsedItemEntity usedItem)
         {
+            var usedItemToUpdate = _usedItemsRepository.Get(id);
+
+            if (ModelState.IsValid && usedItemToUpdate != null)
+            {
+                _usedItemsRepository.Update(usedItemToUpdate, usedItem);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _usedItemsRepository.Delete(id);
+            var deleted = _usedItemsRepository.Delete(id);
+
+            if (deleted)
+                return NoContent();
+            else
+                return BadRequest();
         }
     }
 }
