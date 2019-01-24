@@ -1,5 +1,8 @@
-﻿using SLU.Api.Test.Data.Entities;
+﻿using Newtonsoft.Json;
+using SLU.Api.Test.Data.Entities;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace SLU.Api.Test.Common.Repositories
@@ -15,12 +18,14 @@ namespace SLU.Api.Test.Common.Repositories
 
         protected IEnumerable<TEntityType> ReadJsonFile()
         {
-            return new List<TEntityType>();
+            var filePath = Path.Combine(Environment.CurrentDirectory, $"Data\\{JsonFileName}");
+            var serializedEntities = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<IEnumerable<TEntityType>>(serializedEntities);
         }
 
         protected void WriteJsonFile(IEnumerable<TEntityType> entities)
         {
-
+            var serializedEntities = JsonConvert.SerializeObject(entities ?? new List<TEntityType>());
         }
 
         public virtual void Delete(int id)

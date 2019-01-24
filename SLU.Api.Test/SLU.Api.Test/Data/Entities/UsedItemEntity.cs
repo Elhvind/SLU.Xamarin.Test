@@ -3,6 +3,7 @@ using System;
 
 namespace SLU.Api.Test.Data.Entities
 {
+    [Serializable]
     public class UsedItemEntity : IDataEntity
     {
         [JsonProperty("ID")]

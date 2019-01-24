@@ -20,13 +20,18 @@ namespace SLU.Api.Test.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UsedItemEntity>> Get()
         {
-            return new List<UsedItemEntity>();
+            return Ok(_usedItemsRepository.Get());
         }
 
         [HttpGet("{id}")]
         public ActionResult<UsedItemEntity> Get(int id)
         {
-            return new UsedItemEntity();
+            var usedItem = _usedItemsRepository.Get(id);
+
+            if (usedItem != null)
+                return Ok(usedItem);
+            else
+                return NotFound();
         }
 
         [HttpPost]

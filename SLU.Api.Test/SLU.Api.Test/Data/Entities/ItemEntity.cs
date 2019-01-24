@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace SLU.Api.Test.Data.Entities
 {
+    [Serializable]
     public class ItemEntity : IDataEntity
     {
         [JsonProperty("ID")]

@@ -20,28 +20,36 @@ namespace SLU.Api.Test.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<WholesalerEntity>> Get()
         {
-            return new List<WholesalerEntity>();
+            return Ok(_wholesalerRepository.Get());
         }
 
         [HttpGet("{id}")]
         public ActionResult<WholesalerEntity> Get(int id)
         {
-            return new WholesalerEntity();
+            var wholesaler = _wholesalerRepository.Get(id);
+
+            if (wholesaler != null)
+                return Ok(wholesaler);
+            else
+                return NotFound();
         }
 
         [HttpPost]
-        public void Post([FromBody] WholesalerEntity value)
+        public void Post([FromBody] WholesalerEntity wholesaler)
         {
+            _wholesalerRepository.Create(wholesaler);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] WholesalerEntity value)
+        public void Put(int id, [FromBody] WholesalerEntity wholesaler)
         {
+            _wholesalerRepository.Update(wholesaler);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _wholesalerRepository.Delete(id);
         }
     }
 }
