@@ -87,7 +87,7 @@ namespace SLU.Api.Test.Common.Repositories
 
         public virtual TEntityType Get(int id)
         {
-            return ReadJsonFile().FirstOrDefault(x => x.Id == id);
+            return GetAll().SingleOrDefault(x => x.Id == id);
         }
 
         private string JsonFilePath()

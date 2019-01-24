@@ -73,7 +73,7 @@ namespace SLU.Api.Test.Controllers
             if (deleted)
                 return NoContent();
             else
-                return BadRequest();
+                return NotFound();
         }
     }
 }
