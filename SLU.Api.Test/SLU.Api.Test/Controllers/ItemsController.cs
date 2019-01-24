@@ -41,7 +41,7 @@ namespace SLU.Api.Test.Controllers
             if (ModelState.IsValid)
             {
                 _itemsRepository.Create(item);
-                return Created(Url.Action("Get", "Items", new { id = item.Id }), item.Id);
+                return Created(Url.Action("Get", "Items", new { id = item.Id }), item);
             }
             else
             {
@@ -54,8 +54,12 @@ namespace SLU.Api.Test.Controllers
         {
             if (ModelState.IsValid && item != null)
             {
-                _itemsRepository.Update(id, item);
-                return Ok();
+                var updated = _itemsRepository.Update(id, item);
+
+                if (updated)
+                    return Ok();
+                else
+                    return BadRequest();
             }
             else
             {

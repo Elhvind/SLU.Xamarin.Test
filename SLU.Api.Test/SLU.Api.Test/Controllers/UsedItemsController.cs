@@ -41,7 +41,7 @@ namespace SLU.Api.Test.Controllers
             if (ModelState.IsValid)
             {
                 _usedItemsRepository.Create(usedItem);
-                return Created(Url.Action("Get", "UsedItems", new { id = usedItem.Id }), usedItem.Id);
+                return Created(Url.Action("Get", "UsedItems", new { id = usedItem.Id }), usedItem);
             }
             else
             {
@@ -54,8 +54,12 @@ namespace SLU.Api.Test.Controllers
         {
             if (ModelState.IsValid && usedItem != null)
             {
-                _usedItemsRepository.Update(id, usedItem);
-                return Ok();
+                var updated = _usedItemsRepository.Update(id, usedItem);
+
+                if (updated)
+                    return Ok();
+                else
+                    return BadRequest();
             }
             else
             {

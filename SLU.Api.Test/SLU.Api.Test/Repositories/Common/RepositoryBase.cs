@@ -55,7 +55,7 @@ namespace SLU.Api.Test.Common.Repositories
                 PropertyInfo[] properties = typeof(TEntityType).GetProperties();
                 foreach (PropertyInfo property in properties)
                 {
-                    if (string.Compare(property.Name, "Id", true) == 0)
+                    if (string.Compare(property.Name, nameof(existingEntity.Id), true) == 0)
                         continue;
 
                     var newValue = entity.GetType().GetProperty(property.Name).GetValue(entity, null);
@@ -63,6 +63,7 @@ namespace SLU.Api.Test.Common.Repositories
                 }
 
                 updated = true;
+                break;
             }
 
             WriteJsonFile(existingEntities);

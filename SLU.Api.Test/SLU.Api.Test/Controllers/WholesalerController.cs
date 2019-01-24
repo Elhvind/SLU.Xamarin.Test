@@ -41,7 +41,7 @@ namespace SLU.Api.Test.Controllers
             if (ModelState.IsValid)
             {
                 _wholesalerRepository.Create(wholesaler);
-                return Created(Url.Action("Get", "Wholesaler", new { id = wholesaler.Id }), wholesaler.Id);
+                return Created(Url.Action("Get", "Wholesaler", new { id = wholesaler.Id }), wholesaler);
             }
             else
             {
@@ -54,8 +54,12 @@ namespace SLU.Api.Test.Controllers
         {
             if (ModelState.IsValid && wholesaler != null)
             {
-                _wholesalerRepository.Update(id, wholesaler);
-                return Ok();
+                var updated = _wholesalerRepository.Update(id, wholesaler);
+
+                if (updated)
+                    return Ok();
+                else
+                    return BadRequest();
             }
             else
             {
