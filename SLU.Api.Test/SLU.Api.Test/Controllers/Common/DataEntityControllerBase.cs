@@ -57,7 +57,7 @@ namespace SLU.Api.Test.Controllers
                 if (updated)
                     return Ok();
                 else
-                    return BadRequest();
+                    return NotFound();
             }
             else
             {
