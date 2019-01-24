@@ -14,6 +14,7 @@ namespace SLU.Api.Test.Controllers
 
         public WholesalerController()
         {
+            //TODO: Dependency injection
             _wholesalerRepository = new WholesalerRepository();
         }
 

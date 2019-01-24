@@ -14,6 +14,7 @@ namespace SLU.Api.Test.Controllers
 
         public UsedItemsController()
         {
+            //TODO: Dependency injection
             _usedItemsRepository = new UsedItemsRepository();
         }
 
@@ -47,6 +48,7 @@ namespace SLU.Api.Test.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _usedItemsRepository.Delete(id);
         }
     }
 }

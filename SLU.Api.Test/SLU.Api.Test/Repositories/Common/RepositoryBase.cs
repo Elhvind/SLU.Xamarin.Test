@@ -9,23 +9,23 @@ namespace SLU.Api.Test.Common.Repositories
 {
     public abstract class RepositoryBase<TEntityType> where TEntityType : IDataEntity, new()
     {
+        private readonly string _jsonFileName;
+
         public RepositoryBase(string jsonFileName)
         {
-            JsonFileName = jsonFileName;
+            _jsonFileName = jsonFileName;
         }
-
-        protected string JsonFileName { get; }
 
         protected IEnumerable<TEntityType> ReadJsonFile()
         {
-            var filePath = Path.Combine(Environment.CurrentDirectory, $"Data\\{JsonFileName}");
-            var serializedEntities = File.ReadAllText(filePath);
+            var serializedEntities = File.ReadAllText(JsonFilePath());
             return JsonConvert.DeserializeObject<IEnumerable<TEntityType>>(serializedEntities);
         }
 
         protected void WriteJsonFile(IEnumerable<TEntityType> entities)
         {
             var serializedEntities = JsonConvert.SerializeObject(entities ?? new List<TEntityType>());
+            File.WriteAllText(JsonFilePath(), serializedEntities);
         }
 
         public virtual void Delete(int id)
@@ -43,6 +43,19 @@ namespace SLU.Api.Test.Common.Repositories
         public virtual TEntityType Get(int id)
         {
             return ReadJsonFile().FirstOrDefault(x => x.Id == id);
+        }
+
+        private string JsonFilePath()
+        {
+            if (string.IsNullOrWhiteSpace(_jsonFileName))
+                throw new InvalidDataException($"Property: \"{nameof(_jsonFileName)}\" is invalid!");
+
+            var filePath = Path.Combine(Environment.CurrentDirectory, $"Data\\{_jsonFileName}");
+
+            if (!File.Exists(filePath))
+                throw new InvalidDataException($"Invalid file path: \"{filePath}\"!");
+
+            return filePath;
         }
     }
 }
