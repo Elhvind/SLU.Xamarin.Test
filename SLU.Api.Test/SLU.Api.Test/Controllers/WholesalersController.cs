@@ -6,9 +6,9 @@ namespace SLU.Api.Test.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WholesalerController : DataEntityControllerBase<WholesalerEntity>
+    public class WholesalersController : DataEntityControllerBase<WholesalerEntity>
     {
-        public WholesalerController() : base(new WholesalerRepository())
+        public WholesalersController() : base(new WholesalerRepository())
         {
             //TODO: Dependency injection
         }
