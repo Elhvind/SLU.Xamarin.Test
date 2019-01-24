@@ -26,7 +26,7 @@ namespace SLU.Api.Test.Controllers
         [HttpGet("{id}")]
         public ActionResult<ItemEntity> Get(int id)
         {
-            return new ItemEntity();
+            return _itemsRepository.Get(id);
         }
 
         [HttpPost]
