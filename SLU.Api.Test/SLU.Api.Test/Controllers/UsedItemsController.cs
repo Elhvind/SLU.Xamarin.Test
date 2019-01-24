@@ -52,11 +52,9 @@ namespace SLU.Api.Test.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] UsedItemEntity usedItem)
         {
-            var usedItemToUpdate = _usedItemsRepository.Get(id);
-
-            if (ModelState.IsValid && usedItemToUpdate != null)
+            if (ModelState.IsValid && usedItem != null)
             {
-                _usedItemsRepository.Update(usedItemToUpdate, usedItem);
+                _usedItemsRepository.Update(id, usedItem);
                 return Ok();
             }
             else

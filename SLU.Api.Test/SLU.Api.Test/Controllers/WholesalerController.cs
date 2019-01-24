@@ -52,11 +52,9 @@ namespace SLU.Api.Test.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] WholesalerEntity wholesaler)
         {
-            var wholesalerToUpdate = _wholesalerRepository.Get(id);
-
-            if (ModelState.IsValid && wholesalerToUpdate != null)
+            if (ModelState.IsValid && wholesaler != null)
             {
-                _wholesalerRepository.Update(wholesalerToUpdate, wholesaler);
+                _wholesalerRepository.Update(id, wholesaler);
                 return Ok();
             }
             else

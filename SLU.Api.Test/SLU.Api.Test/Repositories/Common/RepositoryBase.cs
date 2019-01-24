@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace SLU.Api.Test.Common.Repositories
 {
@@ -41,7 +42,33 @@ namespace SLU.Api.Test.Common.Repositories
             WriteJsonFile(existingEntities);
         }
 
-        public abstract void Update(TEntityType entityToUpdate, TEntityType entity);
+        public virtual bool Update(int id, TEntityType entity)
+        {
+            var updated = false;
+            var existingEntities = ReadJsonFile();
+
+            foreach (var existingEntity in existingEntities)
+            {
+                if (existingEntity.Id != id)
+                    continue;
+
+                PropertyInfo[] properties = typeof(TEntityType).GetProperties();
+                foreach (PropertyInfo property in properties)
+                {
+                    if (string.Compare(property.Name, "Id", true) == 0)
+                        continue;
+
+                    var newValue = entity.GetType().GetProperty(property.Name).GetValue(entity, null);
+                    property.SetValue(existingEntity, newValue);
+                }
+
+                updated = true;
+            }
+
+            WriteJsonFile(existingEntities);
+
+            return updated;
+        }
 
         public virtual bool Delete(int id)
         {

@@ -52,11 +52,9 @@ namespace SLU.Api.Test.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] ItemEntity item)
         {
-            var itemToUpdate = _itemsRepository.Get(id);
-
-            if (ModelState.IsValid && itemToUpdate != null)
+            if (ModelState.IsValid && item != null)
             {
-                _itemsRepository.Update(itemToUpdate, item);
+                _itemsRepository.Update(id, item);
                 return Ok();
             }
             else

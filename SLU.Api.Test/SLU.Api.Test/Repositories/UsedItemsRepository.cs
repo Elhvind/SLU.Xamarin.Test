@@ -10,10 +10,5 @@ namespace SLU.Api.Test.Repositories
         public UsedItemsRepository() : base("useditems.json")
         {
         }
-
-        public override void Update(UsedItemEntity entityToUpdate, UsedItemEntity entity)
-        {
-
-        }
     }
 }

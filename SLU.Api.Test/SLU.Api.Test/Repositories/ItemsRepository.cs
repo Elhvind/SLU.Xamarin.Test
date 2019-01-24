@@ -10,10 +10,5 @@ namespace SLU.Api.Test.Repositories
         public ItemsRepository() : base("items.json")
         {
         }
-
-        public override void Update(ItemEntity entityToUpdate, ItemEntity entity)
-        {
-
-        }
     }
 }

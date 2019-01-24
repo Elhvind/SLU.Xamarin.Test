@@ -10,10 +10,5 @@ namespace SLU.Api.Test.Repositories
         public WholesalerRepository() : base("wholesaler.json")
         {
         }
-
-        public override void Update(WholesalerEntity entityToUpdate, WholesalerEntity entity)
-        {
-
-        }
     }
 }

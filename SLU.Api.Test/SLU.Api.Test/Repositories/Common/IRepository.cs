@@ -8,7 +8,7 @@ namespace SLU.Api.Test.Repositories.Common
         IEnumerable<TEntityType> GetAll();
         TEntityType Get(int id);
         void Create(TEntityType entity);
-        void Update(TEntityType entityToUpdate, TEntityType entity);
+        bool Update(int id, TEntityType entity);
         bool Delete(int id);
     }
 }
