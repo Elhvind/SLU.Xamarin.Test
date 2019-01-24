@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SLU.Api.Test.Data.Entities;
 using SLU.Api.Test.Repositories;
 using SLU.Api.Test.Repositories.Interfaces;
 using System.Collections.Generic;
 
 namespace SLU.Api.Test.Controllers
 {
-    [Route("items/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ItemsController : ControllerBase
     {
@@ -17,24 +18,24 @@ namespace SLU.Api.Test.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<ItemEntity>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<ItemEntity>();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<ItemEntity> Get(int id)
         {
-            return "value";
+            return new ItemEntity();
         }
 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] ItemEntity value)
         {
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] ItemEntity value)
         {
         }
 
