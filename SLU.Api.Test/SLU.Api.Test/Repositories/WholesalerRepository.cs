@@ -5,6 +5,9 @@ namespace SLU.Api.Test.Repositories
 {
     public class WholesalerRepository : RepositoryBase<WholesalerEntity>
     {
+        public WholesalerRepository() : base("wholesaler.json")
+        {
 
+        }
     }
 }

@@ -5,6 +5,9 @@ namespace SLU.Api.Test.Repositories
 {
     public class ItemsRepository : RepositoryBase<ItemEntity>
     {
+        public ItemsRepository() : base("items.json")
+        {
 
+        }
     }
 }

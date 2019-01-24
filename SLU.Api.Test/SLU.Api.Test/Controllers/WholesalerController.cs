@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SLU.Api.Test.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("wholesalers/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class WholesalerController : ControllerBase
     {
         // GET api/values
         [HttpGet]
