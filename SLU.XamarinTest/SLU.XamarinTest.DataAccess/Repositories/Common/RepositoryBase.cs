@@ -17,13 +17,13 @@ namespace SLU.XamarinTest.DataAccess.Repositories.Common
             _jsonFileName = jsonFileName;
         }
 
-        protected IEnumerable<TEntityType> ReadJsonFile()
+        protected ICollection<TEntityType> ReadJsonFile()
         {
             var serializedEntities = File.ReadAllText(JsonFilePath());
-            return JsonConvert.DeserializeObject<IEnumerable<TEntityType>>(serializedEntities);
+            return JsonConvert.DeserializeObject<ICollection<TEntityType>>(serializedEntities);
         }
 
-        protected void WriteJsonFile(IEnumerable<TEntityType> entities)
+        protected void WriteJsonFile(ICollection<TEntityType> entities)
         {
             var serializedEntities = JsonConvert.SerializeObject(entities ?? new List<TEntityType>());
             File.WriteAllText(JsonFilePath(), serializedEntities);
@@ -31,7 +31,7 @@ namespace SLU.XamarinTest.DataAccess.Repositories.Common
 
         public virtual void Create(TEntityType entity)
         {
-            var existingEntities = ReadJsonFile().ToList();
+            var existingEntities = ReadJsonFile();
 
             entity.Id = existingEntities.Any()
                 ? existingEntities.Max(x => x.Id) + 1
@@ -79,7 +79,7 @@ namespace SLU.XamarinTest.DataAccess.Repositories.Common
             return allEntites.Count() != filteredEntites.Count();
         }
 
-        public virtual IEnumerable<TEntityType> GetAll()
+        public virtual ICollection<TEntityType> GetAll()
         {
             return ReadJsonFile();
         }
