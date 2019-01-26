@@ -62,13 +62,10 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Rest\RestHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ItemsService.cs" />
-    <Compile Include="Services\Rest\IRestService.cs" />
-    <Compile Include="Services\Rest\RestService.cs" />
     <Compile Include="Services\UsedItemsService.cs" />
     <Compile Include="Services\WholesalersService.cs" />
   </ItemGroup>
@@ -119,9 +116,7 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SLU.XamarinTest.DataAccess\SLU.XamarinTest.DataAccess.csproj">
       <Project>{2616AFA6-7722-462E-8E76-2CB0C2128ACB}</Project>
