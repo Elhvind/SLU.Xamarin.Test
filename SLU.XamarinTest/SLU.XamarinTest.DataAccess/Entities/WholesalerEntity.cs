@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace SLU.XamarinTest.Data.Entities
+namespace SLU.XamarinTest.DataAccess.Entities
 {
     [Serializable]
     public class WholesalerEntity : IDataEntity

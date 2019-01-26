@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
-using SLU.XamarinTest.Data.Entities;
-using SLU.XamarinTest.Repositories.Common;
+using SLU.XamarinTest.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace SLU.XamarinTest.Common.Repositories
+namespace SLU.XamarinTest.DataAccess.Repositories.Common
 {
     public abstract class RepositoryBase<TEntityType> : IRepository<TEntityType> where TEntityType : IDataEntity, new()
     {

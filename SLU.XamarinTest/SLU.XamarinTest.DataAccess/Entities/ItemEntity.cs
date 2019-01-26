@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace SLU.XamarinTest.Models
+namespace SLU.XamarinTest.DataAccess.Entities
 {
     [Serializable]
-    public class Item
+    public class ItemEntity : IDataEntity
     {
         [JsonProperty("ID")]
         public int Id { get; set; }

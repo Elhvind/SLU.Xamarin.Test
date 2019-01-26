@@ -1,14 +1,16 @@
-﻿using SLU.XamarinTest.Services.Rest;
+﻿using SLU.XamarinTest.DataAccess.Repositories;
+using SLU.XamarinTest.DataAccess.Repositories.Interfaces;
 
 namespace SLU.XamarinTest.Services
 {
     public class WholesalersService
     {
-        private readonly IRestService _restService;
+        private readonly IWholesalerRepository _wholesalerRepository;
 
         public WholesalersService()
         {
-            _restService = new RestService();
+            // TODO: Dependency injection
+            _wholesalerRepository = new WholesalerRepository();
         }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLU.XamarinTest", "SLU.XamarinTest\SLU.XamarinTest.csproj", "{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLU.XamarinTest.DataAccess", "SLU.XamarinTest.DataAccess\SLU.XamarinTest.DataAccess.csproj", "{2616AFA6-7722-462E-8E76-2CB0C2128ACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2616AFA6-7722-462E-8E76-2CB0C2128ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2616AFA6-7722-462E-8E76-2CB0C2128ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2616AFA6-7722-462E-8E76-2CB0C2128ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2616AFA6-7722-462E-8E76-2CB0C2128ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

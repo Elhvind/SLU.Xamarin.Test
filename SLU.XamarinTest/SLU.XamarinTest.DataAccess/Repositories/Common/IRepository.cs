@@ -1,7 +1,7 @@
-﻿using SLU.XamarinTest.Data.Entities;
+﻿using SLU.XamarinTest.DataAccess.Entities;
 using System.Collections.Generic;
 
-namespace SLU.XamarinTest.Repositories.Common
+namespace SLU.XamarinTest.DataAccess.Repositories.Common
 {
     public interface IRepository<TEntityType> where TEntityType : IDataEntity, new()
     {

@@ -62,23 +62,8 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Entities\IDataEntity.cs" />
-    <Compile Include="Data\Entities\ItemEntity.cs" />
-    <Compile Include="Data\Entities\UsedItemEntity.cs" />
-    <Compile Include="Data\Entities\WholesalerEntity.cs" />
     <Compile Include="Helpers\Rest\RestHelper.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\UsedItem.cs" />
-    <Compile Include="Models\Wholesaler.cs" />
-    <Compile Include="Repositories\Common\IRepository.cs" />
-    <Compile Include="Repositories\Common\RepositoryBase.cs" />
-    <Compile Include="Repositories\Interfaces\IItemsRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUsedItemsRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IWholesalerRepository.cs" />
-    <Compile Include="Repositories\ItemsRepository.cs" />
-    <Compile Include="Repositories\UsedItemsRepository.cs" />
-    <Compile Include="Repositories\WholesalerRepository.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ItemsService.cs" />
@@ -88,9 +73,6 @@
     <Compile Include="Services\WholesalersService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\items.json" />
-    <None Include="Data\useditems.json" />
-    <None Include="Data\wholesaler.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
@@ -137,7 +119,15 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SLU.XamarinTest.DataAccess\SLU.XamarinTest.DataAccess.csproj">
+      <Project>{2616AFA6-7722-462E-8E76-2CB0C2128ACB}</Project>
+      <Name>SLU.XamarinTest.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

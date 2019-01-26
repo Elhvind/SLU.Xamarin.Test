@@ -1,4 +1,4 @@
-﻿namespace SLU.XamarinTest.Data.Entities
+﻿namespace SLU.XamarinTest.DataAccess.Entities
 {
     public interface IDataEntity
     {
