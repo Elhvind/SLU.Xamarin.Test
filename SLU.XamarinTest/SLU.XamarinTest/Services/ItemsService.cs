@@ -3,7 +3,7 @@ using SLU.XamarinTest.DataAccess.Repositories.Interfaces;
 
 namespace SLU.XamarinTest.Services
 {
-    public class ItemsService
+    public class ItemsService : IItemsService
     {
         private readonly IItemsRepository _itemsRepository;
 
