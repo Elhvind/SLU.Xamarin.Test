@@ -4,7 +4,6 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using SLU.XamarinTest.Services;
 
 namespace SLU.XamarinTest
 {
@@ -21,9 +20,6 @@ namespace SLU.XamarinTest
             textMessage = FindViewById<TextView>(Resource.Id.message);
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
-
-            var itemService = new ItemsService();
-            var items = itemService.GetAllItems();
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)

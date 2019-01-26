@@ -2,7 +2,7 @@
 {
     public static class RestHelper
     {
-        public static string RestUrl(string type) => $"http://localhost:53556/api/{type}/";
+        public static string RestUrl(string type) => $"http://192.168.1.199:53556/api/{type}/";
 
         public static class Types
         {

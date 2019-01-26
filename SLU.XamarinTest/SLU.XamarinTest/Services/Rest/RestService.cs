@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SLU.XamarinTest.Services.Rest
@@ -28,7 +29,8 @@ namespace SLU.XamarinTest.Services.Rest
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<T>>(content);
+                    var entities = JsonConvert.DeserializeObject<List<T>>(content);
+                    return entities;
                 }
                 else
                 {
