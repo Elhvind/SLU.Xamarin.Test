@@ -65,7 +65,8 @@ namespace SLU.XamarinFormsTest.DataAccess.Repositories.Common
                 break;
             }
 
-            WriteJsonFile(existingEntities);
+            if (updated)
+                WriteJsonFile(existingEntities);
 
             return updated;
         }
@@ -73,10 +74,18 @@ namespace SLU.XamarinFormsTest.DataAccess.Repositories.Common
         public virtual bool Delete(int id)
         {
             var allEntites = ReadJsonFile();
-            var filteredEntites = allEntites.Where(x => x.Id != id).ToList();
-            WriteJsonFile(filteredEntites);
 
-            return allEntites.Count() != filteredEntites.Count();
+            var entityToDelete = allEntites.FirstOrDefault(x => x.Id == id);
+
+            if (entityToDelete != null && allEntites.Remove(entityToDelete))
+            {
+                WriteJsonFile(allEntites);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public virtual ICollection<TEntityType> GetAll()
@@ -101,7 +110,5 @@ namespace SLU.XamarinFormsTest.DataAccess.Repositories.Common
 
             return filePath;
         }
-
-
     }
 }
