@@ -3,12 +3,21 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
+using SLU.XamarinTest.Services;
 
 namespace SLU.XamarinTest.Activities.Wholesalers
 {
     [Activity(Label = "Wholesaler list", Theme = "@style/AppTheme")]
     public class WholesalerListActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
+        private readonly IWholesalersService _wholesalersService;
+
+        public WholesalerListActivity()
+        {
+            // TODO: Dependency injection
+            _wholesalersService = new WholesalersService();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

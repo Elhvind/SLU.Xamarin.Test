@@ -26,6 +26,8 @@ namespace SLU.XamarinTest.Activities.Items
             // Create your application here
             var bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.main_navigation);
             bottomNavigation.SetOnNavigationItemSelectedListener(this);
+
+            var allItems = _itemsService.GetAll();
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)
