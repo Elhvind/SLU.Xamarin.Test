@@ -35,34 +35,26 @@ namespace SLU.ApiTest.Controllers.Core
         [HttpPost]
         public virtual ActionResult Post([FromBody] TEntityType entity)
         {
-            if (ModelState.IsValid)
-            {
-                _dataRepository.Create(entity);
-                var entityUrl = Url.Action("Get", new { id = entity.Id });
-                return Created(entityUrl, entity);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _dataRepository.Create(entity);
+            var entityUrl = Url.Action("Get", new { id = entity.Id });
+            return Created(entityUrl, entity);
         }
 
         [HttpPut("{id}")]
         public virtual ActionResult Put(int id, [FromBody] TEntityType entity)
         {
-            if (ModelState.IsValid && entity != null)
-            {
-                var updated = _dataRepository.Update(id, entity);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-                if (updated)
-                    return Ok();
-                else
-                    return NotFound();
-            }
+            var updated = _dataRepository.Update(id, entity);
+
+            if (updated)
+                return Ok();
             else
-            {
-                return BadRequest();
-            }
+                return NotFound();
         }
 
         [HttpDelete("{id}")]
