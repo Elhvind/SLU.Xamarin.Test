@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SLU.ApiTest.Models
+namespace SLU.ApiTest.Models.Items
 {
     [Serializable]
     public class ItemDTO

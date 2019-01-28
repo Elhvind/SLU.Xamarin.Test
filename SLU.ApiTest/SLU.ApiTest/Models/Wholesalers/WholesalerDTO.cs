@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SLU.ApiTest.DataAccess.Models
+namespace SLU.ApiTest.Models.Wholesalers
 {
     [Serializable]
     public class WholesalerDTO

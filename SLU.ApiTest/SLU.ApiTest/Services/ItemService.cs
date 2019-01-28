@@ -1,7 +1,7 @@
 ﻿using SLU.ApiTest.DataAccess.Models;
 using SLU.ApiTest.DataAccess.Repositories;
 using SLU.ApiTest.DataAccess.Repositories.Interfaces;
-using SLU.ApiTest.Models;
+using SLU.ApiTest.Models.Items;
 using SLU.ApiTest.Services.Interfaces;
 using System.Collections.Generic;
 using System.Linq;

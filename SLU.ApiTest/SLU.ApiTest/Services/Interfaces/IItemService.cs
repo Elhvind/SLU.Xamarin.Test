@@ -1,4 +1,4 @@
-﻿using SLU.ApiTest.Models;
+﻿using SLU.ApiTest.Models.Items;
 using System.Collections.Generic;
 
 namespace SLU.ApiTest.Services.Interfaces

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SLU.ApiTest.Models;
+using SLU.ApiTest.Models.Items;
 using SLU.ApiTest.Services;
 using SLU.ApiTest.Services.Interfaces;
 using System.Collections.Generic;

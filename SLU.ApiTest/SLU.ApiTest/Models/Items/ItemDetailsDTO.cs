@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace SLU.ApiTest.Models
+namespace SLU.ApiTest.Models.Items
 {
     [Serializable]
     public class ItemDetailsDTO : ItemDTO
     {
         [JsonProperty("ItemGroup")]
         public string ItemGroup { get; set; }
+
         [JsonProperty("WholesalerIDs")]
         public List<int> WholesalerIds { get; set; }
     }
