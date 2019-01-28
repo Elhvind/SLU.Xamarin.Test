@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace SLU.ApiTest.DataAccess.Models
 {
     [Serializable]
-    public class WholesalerEntity
+    public class WholesalerDTO
     {
         [JsonProperty("ID")]
         public int Id { get; set; }

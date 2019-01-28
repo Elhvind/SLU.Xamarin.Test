@@ -3,7 +3,7 @@ using SLU.ApiTest.DataAccess.Repositories.Core;
 
 namespace SLU.ApiTest.DataAccess.Repositories.Interfaces
 {
-    public interface IUsedItemsRepository : IRepository<UsedItemEntity>
+    public interface IUsedItemRepository : IRepository<UsedItemEntity>
     {
     }
 }

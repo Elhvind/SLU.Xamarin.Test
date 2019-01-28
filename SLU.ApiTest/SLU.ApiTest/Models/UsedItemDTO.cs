@@ -1,36 +1,33 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace SLU.ApiTest.Models
+namespace SLU.ApiTest.DataAccess.Models
 {
     [Serializable]
-    public class ItemEntity
+    public class UsedItemDTO
     {
         [JsonProperty("ID")]
         public int Id { get; set; }
 
+        [JsonProperty("WholesalerID")]
+        public int WholesalerId { get; set; }
+
         [JsonProperty("Name")]
-        [Required]
-        [StringLength(maximumLength: 50)]
         public string Name { get; set; }
 
         [JsonProperty("Itemnumber")]
-        [Required]
         public string ItemNumber { get; set; }
 
         [JsonProperty("ItemGroup")]
         public string ItemGroup { get; set; }
 
         [JsonProperty("Price")]
-        [Required]
         public double Price { get; set; }
 
-        [JsonProperty("WholesalerIDs")]
-        public List<int> WholesalerIds { get; set; }
+        [JsonProperty("Amount")]
+        public double Amount { get; set; }
 
-        [JsonProperty("ImageURL")]
-        public string ImageUrl { get; set; }
+        [JsonProperty("Date")]
+        public DateTime Date { get; set; }
     }
 }

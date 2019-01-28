@@ -4,9 +4,9 @@ using SLU.ApiTest.DataAccess.Repositories.Interfaces;
 
 namespace SLU.ApiTest.DataAccess.Repositories
 {
-    public class UsedItemsRepository : RepositoryBase<UsedItemEntity>, IRepository<UsedItemEntity>, IUsedItemsRepository
+    public class UsedItemRepository : RepositoryBase<UsedItemEntity>, IRepository<UsedItemEntity>, IUsedItemRepository
     {
-        public UsedItemsRepository() : base("useditems.json")
+        public UsedItemRepository() : base("useditems.json")
         {
         }
     }

@@ -9,7 +9,7 @@ namespace SLU.ApiTest.Controllers
     [ApiController]
     public class UsedItemsController : DataEntityControllerBase<UsedItemEntity>
     {
-        public UsedItemsController() : base(new UsedItemsRepository())
+        public UsedItemsController() : base(new UsedItemRepository())
         {
             //TODO: Dependency injection
         }
