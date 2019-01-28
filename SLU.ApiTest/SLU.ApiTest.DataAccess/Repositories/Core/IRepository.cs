@@ -7,7 +7,7 @@ namespace SLU.ApiTest.DataAccess.Repositories.Core
     {
         ICollection<TEntityType> GetAll();
         TEntityType Get(int id);
-        void Create(TEntityType entity);
+        int Create(TEntityType entity);
         bool Update(int id, TEntityType entity);
         bool Delete(int id);
     }

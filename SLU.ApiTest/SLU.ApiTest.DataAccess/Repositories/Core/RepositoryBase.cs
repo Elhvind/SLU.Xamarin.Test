@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SLU.ApiTest.DataAccess.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +28,7 @@ namespace SLU.ApiTest.DataAccess.Repositories.Core
             File.WriteAllText(JsonFilePath(), serializedEntities);
         }
 
-        public virtual void Create(TEntityType entity)
+        public virtual int Create(TEntityType entity)
         {
             var existingEntities = ReadJsonFile().ToList();
 
@@ -39,6 +38,8 @@ namespace SLU.ApiTest.DataAccess.Repositories.Core
 
             existingEntities.Add(entity);
             WriteJsonFile(existingEntities);
+
+            return entity.Id;
         }
 
         public virtual bool Update(int id, TEntityType entity)

@@ -33,7 +33,7 @@ namespace SLU.ApiTest.Services
             return ConvertToDTO(item);
         }
 
-        public void CreateItem(ItemDTO item)
+        public int CreateItem(ItemDTO item)
         {
             var itemEntity = new ItemEntity
             {
@@ -45,7 +45,7 @@ namespace SLU.ApiTest.Services
                 WholesalerIds = new List<int>()
             };
 
-            _itemRepository.Create(itemEntity);
+            return _itemRepository.Create(itemEntity);
         }
 
         public bool UpdateItem(int id, ItemDTO item)

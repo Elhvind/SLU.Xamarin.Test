@@ -12,7 +12,7 @@ namespace SLU.ApiTest.Controllers
     {
         private readonly IItemService _itemService;
 
-        public ItemsController(IItemService _itemService)
+        public ItemsController()
         {
             //TODO: Dependency injection
             _itemService = new ItemService();
@@ -41,9 +41,9 @@ namespace SLU.ApiTest.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _itemService.CreateItem(item);
-            var itemUrl = Url.Action("Get", new { id = item.Id });
-            return Created(itemUrl, item);
+            var newItemId = _itemService.CreateItem(item);
+            var itemUrl = Url.Action("Get", new { id = newItemId });
+            return Created(itemUrl, newItemId);
         }
 
         [HttpPut("{id}")]
