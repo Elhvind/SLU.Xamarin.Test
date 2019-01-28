@@ -27,32 +27,32 @@ namespace SLU.ApiTest.Controllers
         [HttpGet("{id}")]
         public virtual ActionResult<WholesalerDTO> Get(int id)
         {
-            var item = _wholesalerService.GetWholesaler(id);
+            var wholesaler = _wholesalerService.GetWholesaler(id);
 
-            if (item != null)
-                return Ok(item);
+            if (wholesaler != null)
+                return Ok(wholesaler);
             else
                 return NotFound();
         }
 
         [HttpPost]
-        public virtual ActionResult Post([FromBody] WholesalerDTO item)
+        public virtual ActionResult Post([FromBody] WholesalerDTO wholesaler)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var newItemId = _wholesalerService.CreateWholesaler(item);
-            var itemUrl = Url.Action("Get", new { id = newItemId });
-            return Created(itemUrl, newItemId);
+            var newWholesalerId = _wholesalerService.CreateWholesaler(wholesaler);
+            var wholesalerUrl = Url.Action("Get", new { id = newWholesalerId });
+            return Created(wholesalerUrl, newWholesalerId);
         }
 
         [HttpPut("{id}")]
-        public virtual ActionResult Put(int id, [FromBody] WholesalerDTO item)
+        public virtual ActionResult Put(int id, [FromBody] WholesalerDTO wholesaler)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var updated = _wholesalerService.UpdateWholesaler(id, item);
+            var updated = _wholesalerService.UpdateWholesaler(id, wholesaler);
 
             if (updated)
                 return Ok();
