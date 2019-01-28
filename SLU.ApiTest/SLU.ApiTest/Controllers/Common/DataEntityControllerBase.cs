@@ -16,13 +16,13 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<TEntityType>> Get()
+        public virtual ActionResult<IEnumerable<TEntityType>> Get()
         {
             return Ok(_dataRepository.GetAll());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<TEntityType> Get(int id)
+        public virtual ActionResult<TEntityType> Get(int id)
         {
             var entity = _dataRepository.Get(id);
 
@@ -33,7 +33,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] TEntityType entity)
+        public virtual ActionResult Post([FromBody] TEntityType entity)
         {
             if (ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] TEntityType entity)
+        public virtual ActionResult Put(int id, [FromBody] TEntityType entity)
         {
             if (ModelState.IsValid && entity != null)
             {
@@ -66,7 +66,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public virtual ActionResult Delete(int id)
         {
             var deleted = _dataRepository.Delete(id);
 
