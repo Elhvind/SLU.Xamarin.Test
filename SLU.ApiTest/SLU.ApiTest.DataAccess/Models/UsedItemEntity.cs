@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace SLU.ApiTest.Data.Entities
+namespace SLU.ApiTest.DataAccess.Models
 {
     [Serializable]
     public class UsedItemEntity : IDataEntity

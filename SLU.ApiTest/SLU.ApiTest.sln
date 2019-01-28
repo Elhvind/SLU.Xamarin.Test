@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLU.ApiTest", "SLU.ApiTest\SLU.ApiTest.csproj", "{E7AFE50F-75FE-4610-B8C4-514AD9D08915}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLU.ApiTest.DataAccess", "SLU.ApiTest.DataAccess\SLU.ApiTest.DataAccess.csproj", "{D5732BED-C42D-4EB4-9678-29BE899DE21B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E7AFE50F-75FE-4610-B8C4-514AD9D08915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7AFE50F-75FE-4610-B8C4-514AD9D08915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7AFE50F-75FE-4610-B8C4-514AD9D08915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5732BED-C42D-4EB4-9678-29BE899DE21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5732BED-C42D-4EB4-9678-29BE899DE21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5732BED-C42D-4EB4-9678-29BE899DE21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5732BED-C42D-4EB4-9678-29BE899DE21B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

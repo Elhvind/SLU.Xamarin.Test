@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
-using SLU.ApiTest.Data.Entities;
-using SLU.ApiTest.Repositories.Common;
+using SLU.ApiTest.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace SLU.ApiTest.Common.Repositories
+namespace SLU.ApiTest.DataAccess.Repositories.Core
 {
     public abstract class RepositoryBase<TEntityType> : IRepository<TEntityType> where TEntityType : IDataEntity, new()
     {
@@ -18,13 +17,13 @@ namespace SLU.ApiTest.Common.Repositories
             _jsonFileName = jsonFileName;
         }
 
-        protected IEnumerable<TEntityType> ReadJsonFile()
+        protected ICollection<TEntityType> ReadJsonFile()
         {
             var serializedEntities = File.ReadAllText(JsonFilePath());
-            return JsonConvert.DeserializeObject<IEnumerable<TEntityType>>(serializedEntities);
+            return JsonConvert.DeserializeObject<ICollection<TEntityType>>(serializedEntities);
         }
 
-        protected void WriteJsonFile(IEnumerable<TEntityType> entities)
+        protected void WriteJsonFile(ICollection<TEntityType> entities)
         {
             var serializedEntities = JsonConvert.SerializeObject(entities ?? new List<TEntityType>());
             File.WriteAllText(JsonFilePath(), serializedEntities);
@@ -88,7 +87,7 @@ namespace SLU.ApiTest.Common.Repositories
             }
         }
 
-        public virtual IEnumerable<TEntityType> GetAll()
+        public virtual ICollection<TEntityType> GetAll()
         {
             return ReadJsonFile();
         }
@@ -103,7 +102,7 @@ namespace SLU.ApiTest.Common.Repositories
             if (string.IsNullOrWhiteSpace(_jsonFileName))
                 throw new InvalidDataException($"Property: \"{nameof(_jsonFileName)}\" is invalid!");
 
-            var filePath = Path.Combine(Environment.CurrentDirectory, $"Data\\{_jsonFileName}");
+            var filePath = Path.Combine("C:\\LundGit\\SLU.Xamarin.Test\\SLU.ApiTest\\SLU.ApiTest.DataAccess\\Data", _jsonFileName);
 
             if (!File.Exists(filePath))
                 throw new InvalidDataException($"Invalid file path: \"{filePath}\"!");

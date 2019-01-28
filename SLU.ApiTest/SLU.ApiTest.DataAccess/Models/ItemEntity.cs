@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SLU.ApiTest.Data.Entities
+namespace SLU.ApiTest.DataAccess.Models
 {
     [Serializable]
     public class ItemEntity : IDataEntity

@@ -1,9 +1,8 @@
-﻿using SLU.ApiTest.Common.Repositories;
-using SLU.ApiTest.Data.Entities;
-using SLU.ApiTest.Repositories.Common;
-using SLU.ApiTest.Repositories.Interfaces;
+﻿using SLU.ApiTest.DataAccess.Models;
+using SLU.ApiTest.DataAccess.Repositories.Core;
+using SLU.ApiTest.DataAccess.Repositories.Interfaces;
 
-namespace SLU.ApiTest.Repositories
+namespace SLU.ApiTest.DataAccess.Repositories
 {
     public class UsedItemsRepository : RepositoryBase<UsedItemEntity>, IRepository<UsedItemEntity>, IUsedItemsRepository
     {

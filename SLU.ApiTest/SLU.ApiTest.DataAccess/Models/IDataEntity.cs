@@ -1,4 +1,4 @@
-﻿namespace SLU.ApiTest.Data.Entities
+﻿namespace SLU.ApiTest.DataAccess.Models
 {
     public interface IDataEntity
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SLU.ApiTest.Data.Entities;
-using SLU.ApiTest.Repositories.Common;
+using SLU.ApiTest.DataAccess.Models;
+using SLU.ApiTest.DataAccess.Repositories.Core;
 using System.Collections.Generic;
 
-namespace SLU.ApiTest.Controllers
+namespace SLU.ApiTest.Controllers.Core
 {
     [ApiController]
     public abstract class DataEntityControllerBase<TEntityType> : ControllerBase where TEntityType : IDataEntity, new()

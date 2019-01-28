@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SLU.ApiTest.Data.Entities;
-using SLU.ApiTest.Repositories;
+using SLU.ApiTest.Controllers.Core;
+using SLU.ApiTest.DataAccess.Models;
+using SLU.ApiTest.DataAccess.Repositories;
 
 namespace SLU.ApiTest.Controllers
 {
