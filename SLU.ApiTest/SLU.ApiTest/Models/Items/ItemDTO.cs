@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SLU.ApiTest.Models
@@ -20,15 +19,9 @@ namespace SLU.ApiTest.Models
         [Required]
         public string ItemNumber { get; set; }
 
-        [JsonProperty("ItemGroup")]
-        public string ItemGroup { get; set; }
-
         [JsonProperty("Price")]
         [Required]
         public double Price { get; set; }
-
-        [JsonProperty("WholesalerIDs")]
-        public List<int> WholesalerIds { get; set; }
 
         [JsonProperty("ImageURL")]
         public string ImageUrl { get; set; }
