@@ -4,7 +4,6 @@
     {
         public WholesalersService()
         {
-            // TODO: Dependency injection
         }
     }
 }

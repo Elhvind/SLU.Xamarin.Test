@@ -4,7 +4,6 @@
     {
         public UsedItemsService()
         {
-            // TODO: Dependency injection
         }
     }
 }
