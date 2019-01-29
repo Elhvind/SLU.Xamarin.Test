@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace SLU.XamarinFormsTest.DataAccess.Entities
+namespace SLU.XamarinFormsTest.Models.Wholesalers
 {
     [Serializable]
-    public class WholesalerEntity : IDataEntity
+    public class WholesalerDTO
     {
         [JsonProperty("ID")]
         public int Id { get; set; }

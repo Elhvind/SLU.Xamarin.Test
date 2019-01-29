@@ -1,10 +1,10 @@
-﻿using SLU.XamarinFormsTest.DataAccess.Entities;
+﻿using SLU.XamarinFormsTest.Models.Items;
 using System.Collections.Generic;
 
 namespace SLU.XamarinFormsTest.Services
 {
     public interface IItemsService
     {
-        ICollection<ItemEntity> GetAll();
+        ICollection<ItemDTO> GetAll();
     }
 }

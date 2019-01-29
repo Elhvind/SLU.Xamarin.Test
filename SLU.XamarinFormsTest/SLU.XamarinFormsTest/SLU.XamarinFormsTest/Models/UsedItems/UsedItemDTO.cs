@@ -1,14 +1,16 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 
-namespace SLU.XamarinFormsTest.DataAccess.Entities
+namespace SLU.XamarinFormsTest.Models.UsedItems
 {
     [Serializable]
-    public class ItemEntity : IDataEntity
+    public class UsedItemDTO
     {
         [JsonProperty("ID")]
         public int Id { get; set; }
+
+        [JsonProperty("WholesalerID")]
+        public int WholesalerId { get; set; }
 
         [JsonProperty("Name")]
         public string Name { get; set; }
@@ -22,10 +24,10 @@ namespace SLU.XamarinFormsTest.DataAccess.Entities
         [JsonProperty("Price")]
         public double Price { get; set; }
 
-        [JsonProperty("WholesalerIDs")]
-        public List<int> WholesalerIds { get; set; }
+        [JsonProperty("Amount")]
+        public double Amount { get; set; }
 
-        [JsonProperty("ImageURL")]
-        public string ImageUrl { get; set; }
+        [JsonProperty("Date")]
+        public DateTime Date { get; set; }
     }
 }

@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLU.XamarinFormsTest.Android", "SLU.XamarinFormsTest\SLU.XamarinFormsTest.Android\SLU.XamarinFormsTest.Android.csproj", "{F0DE71E1-5FC0-4379-B52F-3AB73CFD11DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLU.XamarinFormsTest", "SLU.XamarinFormsTest\SLU.XamarinFormsTest\SLU.XamarinFormsTest.csproj", "{B42E523C-5B75-4E92-B737-5F6273216FE8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLU.XamarinFormsTest.DataAccess", "SLU.XamarinFormsTest.DataAccess\SLU.XamarinFormsTest.DataAccess.csproj", "{26C83AE3-DF37-4C02-98CA-5A9F6B0A0906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLU.XamarinFormsTest", "SLU.XamarinFormsTest\SLU.XamarinFormsTest\SLU.XamarinFormsTest.csproj", "{B42E523C-5B75-4E92-B737-5F6273216FE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{B42E523C-5B75-4E92-B737-5F6273216FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B42E523C-5B75-4E92-B737-5F6273216FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B42E523C-5B75-4E92-B737-5F6273216FE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26C83AE3-DF37-4C02-98CA-5A9F6B0A0906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26C83AE3-DF37-4C02-98CA-5A9F6B0A0906}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26C83AE3-DF37-4C02-98CA-5A9F6B0A0906}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26C83AE3-DF37-4C02-98CA-5A9F6B0A0906}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

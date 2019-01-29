@@ -1,23 +1,33 @@
-﻿using SLU.XamarinFormsTest.DataAccess.Entities;
-using SLU.XamarinFormsTest.DataAccess.Repositories;
-using SLU.XamarinFormsTest.DataAccess.Repositories.Interfaces;
+﻿using Newtonsoft.Json;
+using SLU.XamarinFormsTest.Helpers;
+using SLU.XamarinFormsTest.Models.Items;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 
 namespace SLU.XamarinFormsTest.Services
 {
     public class ItemsService : IItemsService
     {
-        private readonly IItemsRepository _itemsRepository;
-
         public ItemsService()
         {
             // TODO: Dependency injection
-            _itemsRepository = new ItemsRepository();
         }
 
-        public ICollection<ItemEntity> GetAll()
+        public ICollection<ItemDTO> GetAll()
         {
-            return _itemsRepository.GetAll();
+            using (var httpClient = new HttpClient())
+            {
+                //httpClient.DefaultRequestHeaders.Add(RequestConstants.UserAgent, RequestConstants.UserAgentValue);
+
+                var uri = new Uri(RestHelper.ApiUrl("items"));
+
+                var response = httpClient.GetStringAsync(uri).Result;
+
+                var result = JsonConvert.DeserializeObject<ICollection<ItemDTO>>(response);
+
+                return result;
+            }
         }
     }
 }
