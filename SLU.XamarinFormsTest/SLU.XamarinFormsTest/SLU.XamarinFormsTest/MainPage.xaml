@@ -1,21 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SLU.XamarinFormsTest"
              x:Class="SLU.XamarinFormsTest.MainPage">
 
     <StackLayout>
-        <ListView 
-            x:Name="itemList">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell
-                        Text="{Binding Name}"
-                        Detail="{Binding ItemNumber}"
-                        ImageSource="{Binding ImageUrl}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Label Text="Main Page!"/>
     </StackLayout>
 
 </ContentPage>

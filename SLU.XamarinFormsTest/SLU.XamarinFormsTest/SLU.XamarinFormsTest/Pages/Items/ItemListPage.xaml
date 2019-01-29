@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SLU.XamarinFormsTest.Pages.Items.ItemListPage">
+
+    <ListView x:Name="ItemListView"
+              ItemTapped="ItemListView_ItemTapped"
+              CachingStrategy="RecycleElement">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell
+                        Text="{Binding Name}"
+                        Detail="{Binding ItemNumber}"
+                        ImageSource="{Binding ImageUrl}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</ContentPage>

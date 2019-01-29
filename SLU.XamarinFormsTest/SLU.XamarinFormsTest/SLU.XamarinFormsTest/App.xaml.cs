@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SLU.XamarinFormsTest.Pages.Items;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +11,7 @@ namespace SLU.XamarinFormsTest
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ItemList();
         }
 
         protected override void OnStart()
