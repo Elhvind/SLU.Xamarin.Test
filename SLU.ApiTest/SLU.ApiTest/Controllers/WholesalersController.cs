@@ -19,13 +19,13 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpGet]
-        public virtual ActionResult<IEnumerable<WholesalerDTO>> Get()
+        public ActionResult<IEnumerable<WholesalerDTO>> Get()
         {
             return Ok(_wholesalerService.GetAllWholesalers());
         }
 
         [HttpGet("{id}")]
-        public virtual ActionResult<WholesalerDTO> Get(int id)
+        public ActionResult<WholesalerDTO> Get(int id)
         {
             var wholesaler = _wholesalerService.GetWholesaler(id);
 
@@ -36,7 +36,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPost]
-        public virtual ActionResult Post([FromBody] WholesalerDTO wholesaler)
+        public ActionResult Post([FromBody] WholesalerDTO wholesaler)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,7 +47,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPut("{id}")]
-        public virtual ActionResult Put(int id, [FromBody] WholesalerDTO wholesaler)
+        public ActionResult Put(int id, [FromBody] WholesalerDTO wholesaler)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -61,7 +61,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpDelete("{id}")]
-        public virtual ActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             var deleted = _wholesalerService.DeleteWholesaler(id);
 

@@ -64,16 +64,12 @@ namespace SLU.ApiTest.Services
             return _wholesalerRepository.Delete(id);
         }
 
-        /// <summary>
-        /// Use AutoMapper instead of custom mapping
-        /// </summary>
-        /// <param name="wholesaler"></param>
-        /// <returns></returns>
         private WholesalerDTO ConvertToDTO(WholesalerEntity wholesaler)
         {
             if (wholesaler == null)
                 return null;
 
+            //TODO: Use AutoMapper instead of custom mapping
             return new WholesalerDTO
             {
                 Id = wholesaler.Id,

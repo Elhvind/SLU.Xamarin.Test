@@ -19,13 +19,13 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpGet]
-        public virtual ActionResult<IEnumerable<UsedItemDTO>> Get()
+        public ActionResult<IEnumerable<UsedItemDTO>> Get()
         {
             return Ok(_usedItemService.GetAllUsedItems());
         }
 
         [HttpGet("{id}")]
-        public virtual ActionResult<UsedItemDTO> Get(int id)
+        public ActionResult<UsedItemDTO> Get(int id)
         {
             var item = _usedItemService.GetUsedItem(id);
 
@@ -36,7 +36,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPost]
-        public virtual ActionResult Post([FromBody] UsedItemDTO item)
+        public ActionResult Post([FromBody] UsedItemDTO item)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,7 +47,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPut("{id}")]
-        public virtual ActionResult Put(int id, [FromBody] UsedItemDTO item)
+        public ActionResult Put(int id, [FromBody] UsedItemDTO item)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -61,7 +61,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpDelete("{id}")]
-        public virtual ActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             var deleted = _usedItemService.DeleteUsedItem(id);
 

@@ -7,6 +7,7 @@ namespace SLU.ApiTest.Services.Interfaces
     {
         ICollection<ItemDTO> GetAllItems();
         ItemDTO GetItem(int id);
+        ItemDetailsDTO GetItemDetails(int id);
         int CreateItem(ItemDTO item);
         bool UpdateItem(int id, ItemDTO item);
         bool DeleteItem(int id);

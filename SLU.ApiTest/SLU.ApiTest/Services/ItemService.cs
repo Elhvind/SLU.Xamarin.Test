@@ -33,6 +33,12 @@ namespace SLU.ApiTest.Services
             return ConvertToDTO(item);
         }
 
+        public ItemDetailsDTO GetItemDetails(int id)
+        {
+            var item = _itemRepository.Get(id);
+            return ConvertToDetailsDTO(item);
+        }
+
         public int CreateItem(ItemDTO item)
         {
             var itemEntity = new ItemEntity
@@ -70,16 +76,12 @@ namespace SLU.ApiTest.Services
             return _itemRepository.Delete(id);
         }
 
-        /// <summary>
-        /// Use AutoMapper instead of custom mapping
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         private ItemDTO ConvertToDTO(ItemEntity item)
         {
             if (item == null)
                 return null;
 
+            //TODO: Use AutoMapper instead of custom mapping
             return new ItemDTO
             {
                 Id = item.Id,
@@ -87,6 +89,24 @@ namespace SLU.ApiTest.Services
                 ItemNumber = item.ItemNumber,
                 Price = item.Price,
                 ImageUrl = item.ImageUrl
+            };
+        }
+
+        private ItemDetailsDTO ConvertToDetailsDTO(ItemEntity item)
+        {
+            if (item == null)
+                return null;
+
+            //TODO: Use AutoMapper instead of custom mapping
+            return new ItemDetailsDTO
+            {
+                Id = item.Id,
+                Name = item.Name,
+                ItemNumber = item.ItemNumber,
+                ItemGroup = item.ItemGroup,
+                Price = item.Price,
+                ImageUrl = item.ImageUrl,
+                WholesalerIds = item.WholesalerIds ?? new List<int>()
             };
         }
     }

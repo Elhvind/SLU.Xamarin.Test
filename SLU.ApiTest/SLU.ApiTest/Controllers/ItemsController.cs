@@ -19,13 +19,13 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpGet]
-        public virtual ActionResult<IEnumerable<ItemDTO>> Get()
+        public ActionResult<IEnumerable<ItemDTO>> Get()
         {
             return Ok(_itemService.GetAllItems());
         }
 
         [HttpGet("{id}")]
-        public virtual ActionResult<ItemDTO> Get(int id)
+        public ActionResult<ItemDTO> Get(int id)
         {
             var item = _itemService.GetItem(id);
 
@@ -35,8 +35,19 @@ namespace SLU.ApiTest.Controllers
                 return NotFound();
         }
 
+        [HttpGet("{id}/details")]
+        public ActionResult<ItemDTO> GetDetails(int id)
+        {
+            var item = _itemService.GetItemDetails(id);
+
+            if (item != null)
+                return Ok(item);
+            else
+                return NotFound();
+        }
+
         [HttpPost]
-        public virtual ActionResult Post([FromBody] ItemDTO item)
+        public ActionResult Post([FromBody] ItemDTO item)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,7 +58,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpPut("{id}")]
-        public virtual ActionResult Put(int id, [FromBody] ItemDTO item)
+        public ActionResult Put(int id, [FromBody] ItemDTO item)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -61,7 +72,7 @@ namespace SLU.ApiTest.Controllers
         }
 
         [HttpDelete("{id}")]
-        public virtual ActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             var deleted = _itemService.DeleteItem(id);
 

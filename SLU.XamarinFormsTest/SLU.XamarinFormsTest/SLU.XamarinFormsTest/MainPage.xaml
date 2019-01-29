@@ -9,7 +9,10 @@
             x:Name="itemList">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell Text="{Binding Name}" Detail="{Binding ItemNumber}" ImageSource="{Binding ImageUrl}"></ImageCell>
+                    <ImageCell
+                        Text="{Binding Name}"
+                        Detail="{Binding ItemNumber}"
+                        ImageSource="{Binding ImageUrl}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

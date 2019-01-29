@@ -72,16 +72,12 @@ namespace SLU.ApiTest.Services
             return _usedItemRepository.Delete(id);
         }
 
-        /// <summary>
-        /// Use AutoMapper instead of custom mapping
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         private UsedItemDTO ConvertToDTO(UsedItemEntity item)
         {
             if (item == null)
                 return null;
 
+            //TODO: Use AutoMapper instead of custom mapping
             return new UsedItemDTO
             {
                 Id = item.Id,
